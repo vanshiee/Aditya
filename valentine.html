@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Be My Valentine 💖</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(135deg, #ffe6f0, #fff1f7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Poppins", sans-serif;
+      }
+
+      .card {
+        background: white;
+        padding: 45px 55px;
+        border-radius: 24px;
+        box-shadow: 0 18px 45px rgba(0, 0, 0, 0.15);
+        text-align: center;
+        position: relative;
+        width: 430px;
+      }
+
+      h1 {
+        font-family: "Playfair Display", serif;
+        font-size: 40px;
+        color: #ff4f91;
+        margin-bottom: 25px;
+      }
+
+      .buttons {
+        margin-top: 35px;
+        position: relative;
+        height: 90px;
+      }
+
+      button {
+        font-size: 19px;
+        padding: 12px 28px;
+        border-radius: 30px;
+        border: none;
+        cursor: pointer;
+      }
+
+      #yesBtn {
+        background: #ff4f91;
+        color: white;
+      }
+
+      #noBtn {
+        background: #eee;
+        color: #333;
+        position: absolute;
+        left: 180px;
+        top: 0;
+      }
+
+      .comment {
+        margin-top: 18px;
+        font-size: 18px;
+        color: #ff4f91;
+        height: 24px;
+      }
+
+      .sticker {
+        position: absolute;
+        font-size: 30px;
+      }
+
+      .s1 {
+        top: -20px;
+        left: -20px;
+      }
+      .s2 {
+        top: -22px;
+        right: -20px;
+      }
+      .s3 {
+        bottom: -20px;
+        left: -15px;
+      }
+      .s4 {
+        bottom: -22px;
+        right: -15px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="card" id="card">
+      <div class="sticker s1">🧸</div>
+      <div class="sticker s2">🎀</div>
+      <div class="sticker s3">💌</div>
+      <div class="sticker s4">🐻‍❄️</div>
+
+      <h1>Will you be my Valentine? 💖</h1>
+
+      <div class="buttons">
+        <button id="yesBtn" onclick="yesClicked()">Yes 💘</button>
+        <button id="noBtn">No 🙄</button>
+      </div>
+
+      <div class="comment" id="comment"></div>
+    </div>
+
+    <script>
+      const noBtn = document.getElementById("noBtn");
+      const comment = document.getElementById("comment");
+
+      const comments = [
+        "Nice try 😏",
+        "Whatt???😂",
+        "Wrong choice 🙄",
+        "Why you running? 🏃‍♂️",
+        "Drama nako 😌",
+        "Just say YES already 💕",
+      ];
+
+      noBtn.addEventListener("mouseenter", () => {
+        const card = document.getElementById("card");
+
+        const maxX = card.clientWidth - noBtn.clientWidth;
+        const maxY = 50;
+
+        noBtn.style.left = Math.random() * maxX + "px";
+        noBtn.style.top = Math.random() * maxY + "px";
+
+        comment.textContent =
+          comments[Math.floor(Math.random() * comments.length)];
+      });
+
+      function yesClicked() {
+        document.body.innerHTML = `
+        <div style="
+          height:100vh;
+          width:100vw;
+          background:url('abcd.jpeg') center/cover no-repeat;
+          display:flex;
+          justify-content:center;
+          align-items:center;
+          backdrop-filter: blur(2px);
+        ">
+          <div style="
+            background:rgba(255,255,255,0.85);
+            padding:45px 55px;
+            border-radius:24px;
+            text-align:center;
+            box-shadow:0 18px 45px rgba(0,0,0,0.25);
+            width:420px;
+            font-family:'Poppins', sans-serif;
+          ">
+            <h1 style="
+              font-family:'Playfair Display', serif;
+              font-size:44px;
+              color:#ff4f91;
+            ">YAY 💖</h1>
+
+            <h2 style="font-size:22px;">Good Boy!!!!!You’re my Valentine now 💕</h2>
+            <h3 style="font-size:18px;">Meet me today!!!😘</h3>
+          </div>
+        </div>
+      `;
+      }
+    </script>
+  </body>
+</html>
